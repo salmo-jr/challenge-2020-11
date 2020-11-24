@@ -21,7 +21,7 @@ export default function MovieCard(props){
                 </Body>
                 <Right>
                     <Text style={styles.favorite}>
-                        <Entypo name="star-outlined" size={30} color='white' />
+                        <Entypo name="star-outlined" size={30} color='gold' />
                     </Text>
                 </Right>
             </CardItem>

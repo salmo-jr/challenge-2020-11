@@ -12,21 +12,21 @@ export default StyleSheet.create({
     title: {
         fontSize: 17,
         fontWeight: 'bold',
-        color: '#fff'
+        color: '#ccc'
     },
     type: {
         fontStyle: 'italic',
-        color: '#fff'
+        color: '#ccc'
     },
     year: {
         fontSize: 11,
-        color: '#fff'
+        color: '#ccc'
     },
     description: {
         flexGrow: 1.5
     },
     favorite: {
-        color: '#fff'
+        color: '#ccc'
     }
 
 });
