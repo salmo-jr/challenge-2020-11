@@ -18,6 +18,10 @@ export default function SearchPage(){
         loadingMovies();
     }, [searchValue]);
 
+    useEffect(() => {
+        getFavorites();
+    }, [favorites]);
+
     async function loadingMovies(){
         setLoading(true);
         setMovieList([]);
@@ -31,19 +35,34 @@ export default function SearchPage(){
         return( loading ? <Spinner color='gold' /> : null );
     }
 
-    async function storeData(value){
+    async function addFavorite(id){
+        let updateFavorite;
         try {
-            const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('@storage_Key', jsonValue)
+            if (favorites.includes(id)){
+                updateFavorite = [...favorites];
+                for( var i = 0; i < updateFavorite.length; i++){                       
+                    if (updateFavorite[i] === id) { 
+                        updateFavorite.splice(i, 1); 
+                        break; 
+                    }
+                }
+            } else {
+                updateFavorite = [...favorites, id];
+            }
+            const jsonValue = JSON.stringify(updateFavorite)
+            await AsyncStorage.setItem('favorites', jsonValue);
+            setFavorites(updateFavorite);
         } catch (e) {
             // saving error
         }
     }
 
-    async function getData(){
+    async function getFavorites(){
         try {
-            const jsonValue = await AsyncStorage.getItem('@storage_Key')
-            return jsonValue != null ? JSON.parse(jsonValue) : null;
+            const jsonValue = await AsyncStorage.getItem('favorites');
+            if (jsonValue != null){
+                setFavorites(JSON.parse(jsonValue))
+            }
         } catch (e) {
             // error reading value
         }
@@ -67,6 +86,8 @@ export default function SearchPage(){
                     <MovieCard
                         key={item.imdbID} 
                         movie={item}
+                        favorite={addFavorite}
+                        isFavorite={favorites.includes(item.imdbID)}
                     />
                 )}
             />
