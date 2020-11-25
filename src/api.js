@@ -1,7 +1,8 @@
 import Axios from 'axios';
+import {OMDBAPI_URL} from '@env';
 
 const api = Axios.create({
-    baseURL: 'http://www.omdbapi.com'
+    baseURL: OMDBAPI_URL
 });
 
 export default api;

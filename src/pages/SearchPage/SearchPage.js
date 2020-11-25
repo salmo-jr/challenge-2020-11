@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Spinner } from 'native-base';
 import { FlatList, TextInput, Text, Switch, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {OMDBAPI_TOKEN} from '@env';
 import api from '../../api';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import styles from './SearchPageStyles';
@@ -25,7 +26,7 @@ export default function SearchPage(){
     async function loadingMovies(){
         setLoading(true);
         setMovieList([]);
-        const response = await api.get(`/?apikey=925eba28&s=${searchValue}`);
+        const response = await api.get(`/?apikey=${OMDBAPI_TOKEN}&s=${searchValue}`);
         setMovieList(response['data'].Search);
         setResults(response['data'].Search != null ? response['data'].Search.length : 0);
         setLoading(false);
