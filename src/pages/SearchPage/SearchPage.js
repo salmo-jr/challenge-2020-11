@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Spinner } from 'native-base';
 import { FlatList, TextInput, Text, Switch, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {OMDBAPI_TOKEN} from '@env';
 import api from '../../api';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import styles from './SearchPageStyles';
+const FavoriteRepository = require('../../repositories/FavoriteRepository');
 
 export default function SearchPage(){
     const [movieList, setMovieList] = useState([]);
@@ -24,6 +24,7 @@ export default function SearchPage(){
     }, [favorites]);
 
     async function loadingMovies(){
+        if (searchValue == null) return;
         setLoading(true);
         setMovieList([]);
         const response = await api.get(`/?apikey=${OMDBAPI_TOKEN}&s=${searchValue}`);
@@ -58,8 +59,8 @@ export default function SearchPage(){
             } else {
                 updateFavorite = [...favorites, movie];
             }
-            const jsonValue = JSON.stringify(updateFavorite)
-            await AsyncStorage.setItem('favorites', jsonValue);
+            const repos = new FavoriteRepository();
+            await repos.updateFavorites(updateFavorite);
             setFavorites(updateFavorite);
         } catch (e) {
             // saving error
@@ -68,9 +69,10 @@ export default function SearchPage(){
 
     async function getFavorites(){
         try {
-            const jsonValue = await AsyncStorage.getItem('favorites');
-            if (jsonValue != null){
-                setFavorites(JSON.parse(jsonValue))
+            const repos = new FavoriteRepository();
+            const results = await repos.getFavorites();
+            if (results != null){
+                setFavorites(results);
             }
         } catch (e) {
             // error reading value

@@ -21,7 +21,7 @@ export default function MovieCard(props){
                 </Body>
                 <Right>
                     <Text style={styles.favorite} onPress={() => props.favorite(props.movie)}>
-                        <Entypo name={props.isFavorite ? 'star' : 'star-outlined'} size={30} color='gold' />
+                        <Entypo name={props.isFavorite ? 'star' : 'star-outlined'} size={40} color='gold' />
                     </Text>
                 </Right>
             </CardItem>
