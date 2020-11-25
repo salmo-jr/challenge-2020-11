@@ -1,28 +1,27 @@
-# Desafio Alfred: Novembro/2020 
+# Movie List
+Este aplicativo permite que o usuário pesquise por filmes e séries na base The Open Movie Database (http://www.omdbapi.com/). Além disso, o usuário pode criar uma lista de filmes e séries favoritos.
 
-Neste desafio você terá que implementar um sistema mobile com React Native onde será possível buscar por filmes e series utilizando a API (http://www.omdbapi.com/). A sua solução deve:
-
-- Permitir a busca por filmes
-- Listar os filmes encontrados
-- Permitir escolher filmes favoritos
-- Permitir remover um filme dos favoritos
-- Listar os filmes favoritos
-- Caso o aplicativo seja fechado, os favoritos não devem ser perdidos
-
-Para ajudar na concepção do layout, estamos disponibilizando abaixo um print de um aplicativo que atende os requisitos listados. Use sua criatividade para criar um layout novo, ou reproduza o leyout proposto, se preferir.
-
-Para facilitar um pouco mais as coisas, já deixamos separada uma chave de acesso para a API (ou você pode criar a sua também):
-
+## Tela inicial do aplicativo
 <p align="center">
-  <img src="./cinema-app.gif" alt="cinema-app" width="200px">
+  <img src="./documentation/tela-inicial.jpg" alt="tela inicial" width="200px">
 </p>
 
-Chave de API: 925eba28
-Exemplo requisição: GET http://www.omdbapi.com/?apikey=925eba28&s=batman
+Nela é possível pesquisar por filmes e séries na base The Open Movie Database.
+<p align="center">
+  <img src="./documentation/pesquisa-de-filmes.jpg" alt="pesquisa de filmes e séries" width="200px">
+</p>
 
-Você pode criar uma aplicação nativa, ou com expo (sdk39+).
+A qualquer momento é possível marcar um filme ou série como favorito, clicando na estrela vázia correspondente ao filme desejado.
+<p align="center">
+  <img src="./documentation/marcar-filme-como-favorito.jpg" alt="marcar filme ou série como favorito" width="200px">
+</p>
 
-## Entrega da sua solução
-Altere o arquivo README.md descrevendo o que o aplicativo faz e que tipo de premissas foram adotadas para desenvolver as funcionalidades. Adicione pelo menos uma imagem do aplicativo, pode ser uma imagem estática ou um gif do aplicativo sendo utilizado. Para entregar o projeto, faça um fork neste repositório e envie o link do seu repositório para o responsável quando o projeto estiver finalizado.
+Para visualizar a lista de filmes adicionados à lista de favoritos, basta ativar a visualização da lista de favotitos no topo da tela.
+<p align="center">
+  <img src="./documentation/visualizacao-de-favoritos-2.jpg" alt="lista de favoritos" width="200px">
+</p>
 
-Ficamos no aguardo da entrega da sua solução e desejamos boa sorte ;)
+Um filme ou série pode ser removido da lista de favoritos a qualquer momento, clicando na estrela cheia correspondente ao filme desejado.
+<p align="center">
+  <img src="./documentation/remover-filme-da-lista-de-favoritos.jpg" alt="remover filme ou série da lista de favoritos" width="200px">
+</p>
