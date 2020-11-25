@@ -1,7 +1,8 @@
 # Movie List
 Este aplicativo permite que o usuário pesquise por filmes e séries na base The Open Movie Database (http://www.omdbapi.com/). Além disso, o usuário pode criar uma lista de filmes e séries favoritos.
 
-## Tela inicial do aplicativo
+## Funcionalidades do aplicativo
+Tela inicial:
 <p align="center">
   <img src="./documentation/tela-inicial.jpg" alt="tela inicial" width="200px">
 </p>
@@ -25,3 +26,16 @@ Um filme ou série pode ser removido da lista de favoritos a qualquer momento, c
 <p align="center">
   <img src="./documentation/remover-filme-da-lista-de-favoritos.jpg" alt="remover filme ou série da lista de favoritos" width="200px">
 </p>
+
+## Instalação
+```
+npm install
+```
+## Execução
+É necessário ter o expo-cli instalado para executar a aplicação.
+```
+expo start
+```
+
+## Link para o app
+https://expo.io/@salmo.jr/projects/challenge-2020-11
