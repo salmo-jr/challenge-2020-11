@@ -20,7 +20,7 @@ export default function MovieCard(props){
                     <Text style={styles.year}>{props.movie.Year}</Text>
                 </Body>
                 <Right>
-                    <Text style={styles.favorite} onPress={() => props.favorite(props.movie.imdbID)}>
+                    <Text style={styles.favorite} onPress={() => props.favorite(props.movie)}>
                         <Entypo name={props.isFavorite ? 'star' : 'star-outlined'} size={30} color='gold' />
                     </Text>
                 </Right>

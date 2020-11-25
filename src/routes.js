@@ -13,7 +13,11 @@ export default function Routes(){
                 headerStyle: {
                     backgroundColor: '#222'
                 },
-                headerTintColor: '#ccc'
+                headerTintColor: '#ccc',
+                headerTitleAlign: 'center',
+                headerTitleStyle: {
+                    fontSize: 28
+                }
             }} >
                 <Stack.Screen
                     name='Search'
