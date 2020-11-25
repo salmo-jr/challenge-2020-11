@@ -7,7 +7,8 @@ export default StyleSheet.create({
     favoriteSwitch: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 20
     },
     searchContainerOn: {
         display: 'flex',
